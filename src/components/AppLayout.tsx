@@ -13,6 +13,20 @@ const navItems = [
   { to: "/account", label: "Account" },
 ];
 
+function getPageTitle(pathname: string) {
+  const titleMap: Record<string, string> = {
+    "/": "Dashboard",
+    "/members": "Members",
+    "/payments": "Payments",
+    "/investments": "Investments",
+    "/expenses": "Expenses",
+    "/account": "Account Settings",
+  };
+
+  const sectionTitle = titleMap[pathname] ?? "Workspace";
+  return `${sectionTitle} | Conglomerate`;
+}
+
 export function AppLayout() {
   const { user, logout } = useAuth();
   const { theme, toggleTheme } = useTheme();
@@ -21,6 +35,10 @@ export function AppLayout() {
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    document.title = getPageTitle(location.pathname);
   }, [location.pathname]);
 
   useEffect(() => {
