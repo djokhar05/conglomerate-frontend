@@ -35,9 +35,21 @@ export interface Investment {
   _id: string;
   title: string;
   amountInvested: number;
-  currentValue: number;
+  roi?: number;
   investedAt: string;
   notes?: string;
+}
+
+export interface InvestmentReturn {
+  _id: string;
+  investmentId: { _id: string; title: string } | string;
+  month: number;
+  year: number;
+  type: 'profit' | 'loss';
+  amount: number;
+  note?: string;
+  recordedAt: string;
+  createdBy?: { fullName: string };
 }
 
 export interface Expense {

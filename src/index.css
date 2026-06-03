@@ -233,6 +233,7 @@ td {
   display: inline-flex;
   gap: 0.35rem;
   align-items: center;
+  justify-content: center;
 }
 
 .primary-btn {
@@ -360,10 +361,15 @@ td {
 
 input,
 select {
-  background: transparent;
+  background: var(--bg-elevated);
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 0.65rem;
+  color: var(--text);
+}
+
+select option {
+  background: var(--bg-elevated);
   color: var(--text);
 }
 

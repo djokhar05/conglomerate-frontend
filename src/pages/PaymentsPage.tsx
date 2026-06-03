@@ -97,7 +97,7 @@ export function PaymentsPage() {
   const [form, setForm] = useState({
     memberId: "",
     slots: 1,
-    month: 1,
+    month: new Date().getMonth() + 1,
     paidAt: "",
   });
   const hasLoadedInitialData = useRef(false);
